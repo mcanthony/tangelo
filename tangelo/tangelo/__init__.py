@@ -49,7 +49,7 @@ def log(section, message=None, color=None, lvl=logging.INFO):
         section = "%s%s" % (color, section)
         message = "%s%s" % (message, "\033[0m")
 
-    cherrypy.log(str(message), section, lvl)
+    cherrypy.log.error(str(message), section, lvl)
 
 
 def log_error(section, message=None):
