@@ -89,6 +89,8 @@ def start_tangelo(*args, **kwargs):
             return 0
         elif line.rstrip().endswith("ENGINE Bus EXITED") or process.poll() is not None:
             process = None
+            if kwargs.get('stderr', False):
+                return None, buf
             raise RuntimeError("Could not start Tangelo:\n%s" % ("".join(buf)))
 
 
